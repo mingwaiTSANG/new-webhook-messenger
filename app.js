@@ -124,7 +124,7 @@ function handleMessage(sender_psid, received_message) {
 			"elements": [{
 				"title": "Your problem is...?",
 				"subtitle": "Choose the closely question.",
-			
+			//	"image_url": attachment_url,
 				"buttons": [
 				{
 					"type": "postback",
@@ -155,9 +155,9 @@ function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
   if (payload === 'yes') {
-    response = { "text": "Thanks!" }
+    response = { "text": "I don't know!" }
   } else if (payload === 'no') {
-    response = { "text": "Oops, try sending another image." }
+    response = { "text": "Oops, try sending clearly." }
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
