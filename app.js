@@ -101,27 +101,7 @@ app.get('/webhook', (req, res) => {
 
 function handleMessage(sender_psid, received_message) {
 	let response;
-  
-	respose = {
-		"attachment":{
-			"type":"template",
-			"payload":{
-				"template_type":"button",
-				"text":"What do you want to do next?",
-				"buttons":[
-					{
-						"type":"web_url",
-						"url":"https://www.messenger.com",
-						"title":"Visit Messenger"
-					},
-					{
-						"type":"web_url",
-						"url":"http://www.facebook.com",
-						"title":"Visit Facebook"
-					}]
-			}
-		}
-	}
+
   
   
 	// Checks if the message contains text
