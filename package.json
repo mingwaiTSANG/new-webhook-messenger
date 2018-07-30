@@ -1,0 +1,25 @@
+{
+  "name": "new-webhook-messenger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+	"start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fbsamples/messenger-platform-samples.git"
+  },
+  "author": "Facebook",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "npm": "^6.2.0",
+    "request": "^2.87.0"
+  },
+  "engines": {
+    "node": "~8.11.3"
+  }
+}
