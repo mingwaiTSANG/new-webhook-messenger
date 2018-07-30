@@ -135,6 +135,11 @@ function handleMessage(sender_psid, received_message) {
 					"type": "postback",
 					"title": "My remote-control have some problem!",
 					"payload": "no",
+				},
+				{
+					"type":"phone_number",
+					"title":"Context us!",
+					"payload":"+886968123456",
 				}
 				],
 			}]
@@ -156,9 +161,11 @@ function handlePostback(sender_psid, received_postback) {
   // Set the response based on the postback payload
   if (payload === 'yes') {
     response = { "text": "I don't know!" }
-  } else if (payload === 'no') {
+  } 
+  else if (payload === 'no') {
     response = { "text": "Oops, try sending clearly." }
   }
+  
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
 }
