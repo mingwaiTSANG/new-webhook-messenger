@@ -122,9 +122,9 @@ function handleMessage(sender_psid, received_message) {
 			"payload": {
 			"template_type": "generic",
 			"elements": [{
-				"title": "Is this the right picture?",
+				"title": "Your problem is...?",
 				"subtitle": "Choose the closely question.",
-				"image_url": attachment_url,
+			
 				"buttons": [
 				{
 					"type": "postback",
