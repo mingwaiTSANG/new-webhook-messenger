@@ -114,24 +114,24 @@ function handleMessage(sender_psid, received_message) {
 			"payload": {
 			"template_type": "generic",
 			"elements": [{
-				"title": "Your problem is...?",
-				"subtitle": "Choose the closely question.",
+				"title": "Which one do you want to know?",
+				"subtitle": "Choose the product",
 			//	"image_url": attachment_url,
 				"buttons": [
 				{
 					"type": "postback",
-					"title": "How can I use this remote-control?",
-					"payload": "yes",
+					"title": "AGmini",
+					"payload": "AGmini",
 				},
 				{
 					"type": "postback",
-					"title": "My remote-control have some problem!",
-					"payload": "no",
+					"title": "AGfun box",
+					"payload": "AGfun",
 				},
 				{
-					"type":"phone_number",
-					"title":"Context us!",
-					"payload":"+886968123456",
+					"type":"postback",
+					"title":"AGremo",
+					"payload":"AGremo",
 				}
 				],
 			}]
