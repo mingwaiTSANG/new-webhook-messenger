@@ -120,19 +120,21 @@ function handleMessage(sender_psid, received_message) {
 				"buttons": [
 				{
 					"type": "web_url",
-					"url":"http://www.agtopnet.com/agmini.html/",
+					"url":"http://www.agtopnet.com/agmini.html",
 					"title": "AGmini",
 					"webview_height_ratio": "full",
 				},
 				{
-					"type": "postback",
+					"type": "web_url",
+					"url":"http://www.agtopnet.com/agfunbox.html",
 					"title": "AGfun box",
-					"payload": "AGfun",
+					"webview_height_ratio": "full",
 				},
 				{
-					"type":"postback",
+					"type":"web_url",
+					"url":"http://www.agtopnet.com/agremo.html",
 					"title":"AGremo",
-					"payload":"AGremo",
+					"webview_height_ratio":"full",
 				}
 				],
 			}]
