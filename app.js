@@ -164,4 +164,4 @@ function callSendAPI(sender_psid, response) {
 }
 =======
 }
->>>>>>> 7e9e6afab8ad68f6e73b2432a3bfa3d1314d235c
+>>>>>>> EAADBWiua7GsBAOFikNqnUw4UgdauegX8GIVQtkFOCWGdECmrU8FqCWP1ur7UiX8gLsokwy3JbQNKPZAM7ZBozQAK7nnjz9ZBj0gI3HO32HjdBrkdMZBgZAQydfiTjvO9nhCyTOI2lm82NkcjWZCPdk0P1qLYZBMR0cZBZBZAZB0ZAtWO0gZDZD
