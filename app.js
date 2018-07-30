@@ -110,22 +110,26 @@ function handleMessage(sender_psid, received_message) {
 		// Create the payload for a basic text message, which
 		// will be added to the body of our request to the Send API
 		response = {
-			"text":{
+			"attachment":{
 				"type":"template",
 				"payload":{
 					"template_type":"button",
 					"text":"Which one do you want to know?",
-					"buttons":[{
+					"buttons":[
+					{
 						"type":"text",
-						"title":"AGmini"
+						"title":"AGmini",
+						"payload":"AGmini"
 					},
 					{
 						"type":"text",
-						"title":"AGfun box"
+						"title":"AGfun box",
+						"payload":"AGfun"
 					},
 					{
 						"type":"text",
-						"title":"AGremo"
+						"title":"AGremo",
+						"payload":"AGremo"
 					}]
 				}
 			}
