@@ -129,7 +129,7 @@ function handleMessage(sender_psid, received_message) {
 				{
 					"type": "postback",
 					"title": "How can I use this remote-control?",
-					"payload": "remote-control",
+					"payload": "control",
 				},
 				{
 					"type": "postback",
@@ -159,7 +159,7 @@ function handlePostback(sender_psid, received_postback) {
   let payload = received_postback.payload;
 
   // Set the response based on the postback payload
-  if (payload === 'remote-control') {
+  if (payload === 'control') {
     response = { "text": "I don't know!" }
   } 
   else if (payload === 'problem') {
