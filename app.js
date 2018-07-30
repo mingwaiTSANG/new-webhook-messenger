@@ -107,37 +107,38 @@ function handleMessage(sender_psid, received_message) {
   
 	// Checks if the message contains text
 	if (received_message.text) {    
-		// Create the payload for a basic text message, which
-		// will be added to the body of our request to the Send API
+
 		response = {
-			"attachment": {
-				"type": "template",
-				"payload": {
-					"template_type": "generic",
-					"elements": [{
-						"title":"Which one do you want to know?",
-						"subtitle": "Choose the closely question.",
-					
-					"buttons":[
-					{
-						"type":"postback",
-						"title":"AGmini",
-						"payload":"AGmini"
-					},
-					{
-						"type":"postback",
-						"title":"AGfun box",
-						"payload":"AGfun"
-					},
-					{
-						"type":"postback",
-						"title":"AGremo",
-						"payload":"AGremo"
-					}],
-				}]
+		"attachment": {
+			"type": "template",
+			"payload": {
+			"template_type": "generic",
+			"elements": [{
+				"title": "Your problem is...?",
+				"subtitle": "Choose the closely question.",
+			//	"image_url": attachment_url,
+				"buttons": [
+				{
+					"type": "postback",
+					"title": "How can I use this remote-control?",
+					"payload": "yes",
+				},
+				{
+					"type": "postback",
+					"title": "My remote-control have some problem!",
+					"payload": "no",
+				},
+				{
+					"type":"phone_number",
+					"title":"Context us!",
+					"payload":"+886968123456",
+				}
+				],
+			}]
 			}
 		}
-	}	 
+		}
+	} 	 
 	else if (received_message.attachments) {
 		// Get the URL of the message attachment
 		let attachment_url = received_message.attachments[0].payload.url;
