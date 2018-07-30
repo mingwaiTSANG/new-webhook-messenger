@@ -192,7 +192,7 @@ function handlePostback(sender_psid, received_postback) {
 		response = { "text": "Oops, try sending clearly." }
 	}
 	else if(payload === 'AGmini'){
-		response = { "attachment_url": "http://www.agtopnet.com/agmini.html"}
+		response = { "web_url": "http://www.agtopnet.com/agmini.html"}
 	}
   
   // Send the message to acknowledge the postback
