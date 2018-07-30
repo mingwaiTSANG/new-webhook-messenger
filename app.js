@@ -132,7 +132,7 @@ function handleMessage(sender_psid, received_message) {
 				},
 				{
 					"type":"web_url",
-					"url":"http://www.agtopnet.com/agremo.html",
+					"url":"http://www.agtopnet.com/agremote.html",
 					"title":"AGremo",
 					"webview_height_ratio":"full",
 				}
