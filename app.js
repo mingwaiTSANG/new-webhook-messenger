@@ -113,8 +113,8 @@ function handleMessage(sender_psid, received_message) {
 			"attachment":{
 				"type":"template",
 				"payload":{
-					"template_type":"button",
-					"text":"Which one do you want to know?",
+					"template_type":"generic",
+					"title":"Which one do you want to know?",
 					"buttons":[
 					{
 						"type":"text",
