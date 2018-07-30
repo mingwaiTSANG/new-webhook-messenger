@@ -114,7 +114,10 @@ function handleMessage(sender_psid, received_message) {
 				"type":"template",
 				"payload":{
 					"template_type":"generic",
-					"title":"Which one do you want to know?",
+					"elements": [{
+						"title":"Which one do you want to know?",
+						"subtitle": "Choose the closely question.",
+					
 					"buttons":[
 					{
 						"type":"text",
@@ -130,8 +133,8 @@ function handleMessage(sender_psid, received_message) {
 						"type":"text",
 						"title":"AGremo",
 						"payload":"AGremo"
-					}]
-				}
+					}],
+				}]
 			}
 		}
 	}	 
