@@ -119,9 +119,10 @@ function handleMessage(sender_psid, received_message) {
 			//	"image_url": attachment_url,
 				"buttons": [
 				{
-					"type": "postback",
+					"type": "web_url",
+					"url":"http://www.agtopnet.com/agmini.html/",
 					"title": "AGmini",
-					"payload": "AGmini",
+					"webview_height_ratio": "full",
 				},
 				{
 					"type": "postback",
@@ -191,9 +192,7 @@ function handlePostback(sender_psid, received_postback) {
 	else if (payload === 'no') {
 		response = { "text": "Oops, try sending clearly." }
 	}
-	else if(payload === 'AGmini'){
-		response = { "url": "http://www.agtopnet.com/agmini.html/"}
-	}
+	
   
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
