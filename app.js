@@ -179,18 +179,21 @@ function handleMessage(sender_psid, received_message) {
 }
 
 function handlePostback(sender_psid, received_postback) {
-  let response;
+	let response;
   
-  // Get the payload for the postback
-  let payload = received_postback.payload;
+	// Get the payload for the postback
+	let payload = received_postback.payload;
 
-  // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { "text": "I don't know!" }
-  } 
-  else if (payload === 'no') {
-    response = { "text": "Oops, try sending clearly." }
-  }
+	// Set the response based on the postback payload
+	if (payload === 'yes') {
+		response = { "text": "I don't know!" }
+	} 
+	else if (payload === 'no') {
+		response = { "text": "Oops, try sending clearly." }
+	}
+	else if(payload === 'AGmini'){
+		response = { "url": "http://www.agtopnet.com/agmini.html"}
+	}
   
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
