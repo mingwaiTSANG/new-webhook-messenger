@@ -123,17 +123,17 @@ function handleMessage(sender_psid, received_message) {
 			"template_type": "generic",
 			"elements": [{
 				"title": "Is this the right picture?",
-				"subtitle": "Tap a button to answer.",
+				"subtitle": "Choose the closely question.",
 				"image_url": attachment_url,
 				"buttons": [
 				{
 					"type": "postback",
-					"title": "Yes!",
+					"title": "How can I use this remote-control?",
 					"payload": "yes",
 				},
 				{
 					"type": "postback",
-					"title": "No!",
+					"title": "My remote-control have some problem!",
 					"payload": "no",
 				}
 				],
