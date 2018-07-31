@@ -51,11 +51,16 @@ app.post('/webhook', (req, res) => {
 		let sender_psid = webhook_event.sender.id;
 		console.log('Sender ID: ' + sender_psid);
 		
-		{
-			"get_started":{
-				"payload":"start"
-			}
-		}
+		"greeting": [
+    {
+      "locale":"default",
+      "text":"Hello!" 
+    }, {
+      "locale":"en_US",
+      "text":"Timeless apparel for the masses."
+    }
+  ]
+}
 
 		// Check if the event is a message or postback and
 		// pass the event to the appropriate handler function
