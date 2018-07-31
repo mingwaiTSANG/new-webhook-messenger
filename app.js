@@ -103,7 +103,12 @@ app.get('/webhook', (req, res) => {
 function handleMessage(sender_psid, received_message) {
 	let response;
 	
-	
+	const greeting = firstEntity(message.nlp, 'greetings');
+	if (greeting && greeting.confidence > 0.8) {
+		sendResponse('Hi there!');
+	} else { 
+		// default logic
+	}
   
 	// Checks if the message contains text
 	if (received_message.text) {    
@@ -168,7 +173,7 @@ function handleMessage(sender_psid, received_message) {
 				{
 					"type":"phone_number",
 					"title":"Context us!",
-					"payload":"+886968123456",
+					"payload":"0800031419",
 				}
 				],
 			}]
@@ -226,4 +231,8 @@ function callSendAPI(sender_psid, response) {
 			console.error("Unable to send message:" + err);
 		}
 	}); 
+}
+
+function firstEntity(nlp, name) {
+  return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
 }
