@@ -1,4 +1,3 @@
-
 /**
  * Copyright 2017-present, Facebook, Inc. All rights reserved.
  *
@@ -24,15 +23,15 @@
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 // Imports dependencies and set up http server
 const 
-  request = require('request'),
-  express = require('express'),
-  body_parser = require('body-parser'),
-  app = express().use(body_parser.json()); // creates express http server
+	request = require('request'),
+	express = require('express'),
+	body_parser = require('body-parser'),
+	app = express().use(body_parser.json()); // creates express http server
 
-// Sets server port and logs message on success
+	// Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
-// Accepts POST requests at /webhook endpoint
+	// Accepts POST requests at /webhook endpoint
 app.post('/webhook', (req, res) => {  
 
 	// Parse the request body from the POST
@@ -51,6 +50,12 @@ app.post('/webhook', (req, res) => {
 		// Get the sender PSID
 		let sender_psid = webhook_event.sender.id;
 		console.log('Sender ID: ' + sender_psid);
+		
+		{
+			"get_started":{
+				"payload":"start"
+			}
+		}
 
 		// Check if the event is a message or postback and
 		// pass the event to the appropriate handler function
@@ -65,10 +70,10 @@ app.post('/webhook', (req, res) => {
 		// Return a '200 OK' response to all events
     res.status(200).send('EVENT_RECEIVED');
 
-  } else {
+	} else {
     // Return a '404 Not Found' if event is not from a page subscription
-    res.sendStatus(404);
-  }
+		res.sendStatus(404);
+	}
 
 });
 
@@ -97,7 +102,7 @@ app.get('/webhook', (req, res) => {
 		// Responds with '403 Forbidden' if verify tokens do not match
 		res.sendStatus(403);      
     }
-  }
+	}
 });
 
 function handleMessage(sender_psid, received_message) {
@@ -194,6 +199,9 @@ function handlePostback(sender_psid, received_postback) {
 	else if (payload === 'no') {
 		response = { "text": "Oops, try sending clearly." }
 	}
+	else if (payload === 'start'){
+		response = { "text": "Hello~ {{user_first_name}}!"}
+	}
 	
   
   // Send the message to acknowledge the postback
@@ -201,25 +209,26 @@ function handlePostback(sender_psid, received_postback) {
 }
 
 function callSendAPI(sender_psid, response) {
-  // Construct the message body
-  let request_body = {
-    "recipient": {
-      "id": sender_psid
-    },
-    "message": response
-  }
+	// Construct the message body
+	let request_body = {
+		"recipient": {
+		"id": sender_psid
+		},
+		"message": response
+	}
 
-  // Send the HTTP request to the Messenger Platform
-  request({
-    "uri": "https://graph.facebook.com/v2.6/me/messages",
-    "qs": { "access_token": PAGE_ACCESS_TOKEN },
-    "method": "POST",
-    "json": request_body
-  }, (err, res, body) => {
-    if (!err) {
-      console.log('message sent!')
-    } else {
-      console.error("Unable to send message:" + err);
-    }
-  }); 
+	// Send the HTTP request to the Messenger Platform
+	request({
+		"uri": "https://graph.facebook.com/v2.6/me/messages",
+		"qs": { "access_token": PAGE_ACCESS_TOKEN },
+		"method": "POST",
+		"json": request_body
+	}, (err, res, body) => {
+		if (!err) {
+			console.log('message sent!')
+		} 
+		else {
+			console.error("Unable to send message:" + err);
+		}
+	}); 
 }
