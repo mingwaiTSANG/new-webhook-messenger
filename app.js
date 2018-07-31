@@ -195,7 +195,7 @@ function handlePostback(sender_psid, received_postback) {
 		response = { "text": "Oops, try sending clearly." }
 	}
 	else if (payload === 'start'){
-		response = { "text": "Hello~ {{user_first_name}}!"}
+		response = { "text": "Hi, What can I do for you?"}
 	}
 	
   
