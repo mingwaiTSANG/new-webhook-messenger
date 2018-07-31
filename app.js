@@ -98,17 +98,7 @@ app.get('/webhook', (req, res) => {
 		res.sendStatus(403);      
     }
 	}
-	setupGetStartedButton(res);
 });
-
-function setupGetStartedButton(res){
-    var messageData = {
-        "get_started":[
-        {
-            "payload":"USER_DEFINED_PAYLOAD"
-        }
-    ]
-};
 
 function handleMessage(sender_psid, received_message) {
 	let response;
@@ -227,8 +217,6 @@ function callSendAPI(sender_psid, response) {
 		"uri": "https://graph.facebook.com/v2.6/me/messages",
 		"qs": { "access_token": PAGE_ACCESS_TOKEN },
 		"method": "POST",
-		headers: {"Content-Type": "application/json"},
-        form: messageData,
 		"json": request_body
 		}, (err, res, body) => {
 		if (!err) {
