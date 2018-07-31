@@ -103,7 +103,7 @@ app.get('/webhook', (req, res) => {
 function handleMessage(sender_psid, received_message) {
 	let response;
 	
-	const greeting = firstEntity(message.nlp, 'greetings');
+	const greeting = firstEntity(received_message.nlp, 'greetings');
 	if (greeting && greeting.confidence > 0.8) {
 		sendResponse('Hi there!');
 	} else { 
