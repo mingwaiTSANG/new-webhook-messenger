@@ -36,7 +36,7 @@ app.post('/webhook', (req, res) => {
 
 	// Parse the request body from the POST
 	let body = req.body;
-	var formData = {
+	var messageData = {
         "get_started":[
         {
             "payload":"start"
@@ -224,6 +224,7 @@ function callSendAPI(sender_psid, response) {
 		"uri": "https://graph.facebook.com/v2.6/me/messages",
 		"qs": { "access_token": PAGE_ACCESS_TOKEN },
 		"method": "POST",
+		"form": "messageData;
 		"json": request_body
 		}, (err, res, body) => {
 		if (!err) {
