@@ -36,7 +36,13 @@ app.post('/webhook', (req, res) => {
 
 	// Parse the request body from the POST
 	let body = req.body;
-
+	var formData = {
+        "get_started":[
+        {
+            "payload":"start"
+            }
+        ]
+	};
 
 	// Check the webhook event is from a Page subscription
 	if (body.object === 'page') {
@@ -219,7 +225,7 @@ function callSendAPI(sender_psid, response) {
 		"qs": { "access_token": PAGE_ACCESS_TOKEN },
 		"method": "POST",
 		"json": request_body
-	}, (err, res, body) => {
+		}, (err, res, body) => {
 		if (!err) {
 			console.log('message sent!')
 		} 
