@@ -106,8 +106,8 @@ function handleMessage(sender_psid, received_message) {
 	const greeting = firstEntity(received_message.nlp, 'greetings');
 	const thanks = firstEntity(received_message.nlp, 'thanks');
 	const bye = firstEntity(received_message.nlp, 'bye');
-	const remote = firstEntity(received_message.nlp, 'remote');
-	const television = firstEntity(received_message.nlp, 'television');
+	const remote = firstEntity(received_message.nlp, 'intent/remote');
+	const television = firstEntity(received_message.nlp, 'intent/television');
 	if (greeting && greeting.confidence > 0.8) {
 		response ={"text":"Hi there!"}
 	} 
