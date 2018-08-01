@@ -116,7 +116,7 @@ function handleMessage(sender_psid, received_message) {
 	else if (bye && bye.confidence > 0.8){
 		response = {"text":"Bye bye~!"}
 	}
-	else if (remote && remote.confidence > 0.8){
+	else if (remote && remote.confidence > 0.6){
 		response = {
 			"attachment": {
 				"type": "template",
