@@ -149,6 +149,34 @@ function handleMessage(sender_psid, received_message) {
 			}
 		}
 	}
+	else if (television && television.confidence > 0.8){
+		response = {
+			"attachment": {
+				"type": "template",
+				"payload": {
+				"template_type": "generic",
+				"elements": [{
+					"title": "Television",
+					"buttons": [
+					{
+						"type": "web_url",
+						"url":"https://www.youtube.com/watch?v=9JUSfv2jGv8&feature=youtu.be&list=PLQsbsFdQU3uuDcboQFEyN6IOaWBAJJQvF",
+						"title": "AGfun x Skype",
+						"webview_height_ratio": "full",
+					},
+					{
+						"type": "web_url",
+						"url":"https://www.youtube.com/watch?v=FEB0GnN8gZ8&feature=youtu.be&list=PLQsbsFdQU3uuDcboQFEyN6IOaWBAJJQvF",
+						"title": "Linking Play",
+						"webview_height_ratio": "full",
+					}
+					],
+				}]
+				}
+			}
+		}
+	}
+	
 	else{
 	// Checks if the message contains text
 	if (received_message.text) {    
