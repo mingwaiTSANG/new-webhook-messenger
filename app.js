@@ -106,7 +106,7 @@ function handleMessage(sender_psid, received_message) {
 	const greeting = firstEntity(received_message.nlp, 'greetings');
 	const thanks = firstEntity(received_message.nlp, 'thanks');
 	const bye = firstEntity(received_message.nlp, 'bye');
-	const remote = firstEntity(received_message.nlp, '遙控器');
+	const remote = firstEntity(received_message.nlp, 'remoteControl');
 	if (greeting && greeting.confidence > 0.8) {
 		response ={"text":"Hi there!"}
 	} 
