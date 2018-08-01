@@ -106,7 +106,7 @@ function handleMessage(sender_psid, received_message) {
 	const greeting = firstEntity(received_message.nlp, 'greetings');
 	const thanks = firstEntity(received_message.nlp, 'thanks');
 	const bye = firstEntity(received_message.nlp, 'bye');
-	const remote = firstEntity(received_message.nlp, 'remoteControl');
+	const remote = firstEntity(received_message.nlp, 'remote');
 	if (greeting && greeting.confidence > 0.8) {
 		response ={"text":"Hi there!"}
 	} 
@@ -116,7 +116,7 @@ function handleMessage(sender_psid, received_message) {
 	else if (bye && bye.confidence > 0.8){
 		response = {"text":"Bye bye~!"}
 	}
-	else if (remote && remote.confidence > 0.3){
+	else if (remote && remote.confidence > 0.8){
 		response = {
 			"attachment": {
 				"type": "template",
