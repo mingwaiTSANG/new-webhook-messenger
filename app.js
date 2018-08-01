@@ -104,9 +104,17 @@ function handleMessage(sender_psid, received_message) {
 	let response;
 	
 	const greeting = firstEntity(received_message.nlp, 'greetings');
+	const thanks = firstEntity(received_message.nlp, 'thanks');
+	const bye = firstEntity(received_message.nlp, 'bye');
 	if (greeting && greeting.confidence > 0.8) {
 		response ={"text":"Hi there!"}
 	} 
+	else if (thanks && thanks.confidence > 0.8){
+		response = {"text":"thank you.^.^"}
+	}
+	else if (bye && bye.confidence > 0.8){
+		response = {"text":"Bye bye~!"}
+	}
 	else{
 	// Checks if the message contains text
 	if (received_message.text) {    
