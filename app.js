@@ -106,14 +106,48 @@ function handleMessage(sender_psid, received_message) {
 	const greeting = firstEntity(received_message.nlp, 'greetings');
 	const thanks = firstEntity(received_message.nlp, 'thanks');
 	const bye = firstEntity(received_message.nlp, 'bye');
+	const remote = firstEntity(received_message.nlp, '遙控器');
 	if (greeting && greeting.confidence > 0.8) {
 		response ={"text":"Hi there!"}
 	} 
 	else if (thanks && thanks.confidence > 0.8){
-		response = {"text":"thank you.^.^"}
+		response = {"text":"you are welcome.^.^"}
 	}
 	else if (bye && bye.confidence > 0.8){
 		response = {"text":"Bye bye~!"}
+	}
+	else if (remote && remote.confidence > 0.8){
+		response = {
+			"attachment": {
+				"type": "template",
+				"payload": {
+				"template_type": "generic",
+				"elements": [{
+					"title": "Remote-Control",
+					"buttons": [
+					{
+						"type": "web_url",
+						"url":"https://www.youtube.com/watch?v=kp7m4_aAABk&feature=youtu.be&list=PLQsbsFdQU3uuDcboQFEyN6IOaWBAJJQvF",
+						"title": "AG遙控器紅外綫學習",
+						"webview_height_ratio": "full",
+					},
+					{
+						"type": "web_url",
+						"url":"https://www.youtube.com/watch?v=CCBpTiCFpRA&feature=youtu.be&list=PLQsbsFdQU3uuDcboQFEyN6IOaWBAJJQvF",
+						"title": "AG專利遙控器有多好用？",
+						"webview_height_ratio": "full",
+					},
+					{
+						"type":"web_url",
+						"url":"https://www.youtube.com/watch?v=-TdUZUJZCdM&feature=youtu.be&list=PLQsbsFdQU3uuDcboQFEyN6IOaWBAJJQvF",
+						"title":"AG遙控器輸入法",
+						"webview_height_ratio":"full",
+					}
+					],
+				}]
+				}
+			}
+		}
 	}
 	else{
 	// Checks if the message contains text
