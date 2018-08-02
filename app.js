@@ -193,38 +193,70 @@ function handleMessage(sender_psid, received_message) {
 	if (received_message.text) {    
 
 		response = {
-		"attachment": {
+			"attachment": {
 			"type": "template",
 			"payload": {
-			"template_type": "generic",
-			"elements": [{
-				"title": "Which one do you want to know?",
-				"subtitle": "Choose the product",
-			//	"image_url": attachment_url,
+			"template_type": "list",
+			"top_element_style": "compact",
+			"elements": [
+				{
+				"title": "Classic T-Shirt Collection",
+				"subtitle": "See all our colors",
+				"image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",          
 				"buttons": [
 				{
+					"title": "View",
 					"type": "web_url",
-					"url":"http://www.agtopnet.com/agmini.html",
-					"title": "AGmini",
-					"webview_height_ratio": "full",
-				},
-				{
-					"type": "web_url",
-					"url":"http://www.agtopnet.com/agfunbox.html",
-					"title": "AGfun box",
-					"webview_height_ratio": "full",
-				},
-				{
-					"type":"web_url",
-					"url":"http://www.agtopnet.com/agremote.html",
-					"title":"AGremo",
-					"webview_height_ratio":"full",
+					"url": "https://peterssendreceiveapp.ngrok.io/collection",
+					"messenger_extensions": true,
+					"webview_height_ratio": "tall",
+					"fallback_url": "https://peterssendreceiveapp.ngrok.io/"            
 				}
-				],
-			}]
+				]
+			},
+			{
+				"title": "Classic White T-Shirt",
+				"subtitle": "See all our colors",
+				"default_action": {
+					"type": "web_url",
+					"url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
+					"messenger_extensions": false,
+					"webview_height_ratio": "tall"
+				}
+			},
+			{
+				"title": "Classic Blue T-Shirt",
+				"image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
+				"subtitle": "100% Cotton, 200% Comfortable",
+				"default_action": {
+					"type": "web_url",
+					"url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
+					"messenger_extensions": true,
+					"webview_height_ratio": "tall",
+					"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+				},
+				"buttons": [
+				{
+					"title": "Shop Now",
+					"type": "web_url",
+					"url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
+					"messenger_extensions": true,
+					"webview_height_ratio": "tall",
+					"fallback_url": "https://peterssendreceiveapp.ngrok.io/"            
+				}
+				]        
 			}
+			],
+			"buttons": [
+			{
+				"title": "View More",
+				"type": "postback",
+				"payload": "payload"            
+			}
+			]  
 		}
 		}
+	}
 	} 	 
 	else if (received_message.attachments) {
 		// Get the URL of the message attachment
