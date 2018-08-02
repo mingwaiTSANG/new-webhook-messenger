@@ -154,36 +154,29 @@ function handleMessage(sender_psid, received_message) {
 	else if (television && television.confidence > 0.5){
 		response = {
 			"attachment": {
-			"type": "template",
-			"payload": {
-			"template_type": "list",
-			"top_element_style": "compact",
-			"elements": [
-				{
-				"title": "Classic T-Shirt Collection",
-				"subtitle": "See all our colors",
-				"image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",          
-				"buttons": [
-				{
-					"title": "View",
-					"type": "web_url",
-					"url": "https://peterssendreceiveapp.ngrok.io/collection",
-					"messenger_extensions": true,
-					"webview_height_ratio": "tall",          
+				"type": "template",
+				"payload": {
+				"template_type": "generic",
+				"elements": [{
+					"title": "AGfun Television",
+					"buttons": [
+					{
+						"type": "web_url",
+						"url":"https://www.youtube.com/watch?v=FEB0GnN8gZ8&feature=youtu.be&list=PLQsbsFdQU3uuDcboQFEyN6IOaWBAJJQvF",
+						"title": "Linking Play",
+						"webview_height_ratio": "full",
+					},
+					{
+						"type": "web_url",
+						"url":"https://www.youtube.com/watch?v=9JUSfv2jGv8&feature=youtu.be&list=PLQsbsFdQU3uuDcboQFEyN6IOaWBAJJQvF",
+						"title": "AGfun x Skype？",
+						"webview_height_ratio": "full",
+					},
+					],
+				}]
 				}
-				]
-			},
-			],
-			"buttons": [
-			{
-				"title": "View More",
-				"type": "postback",
-				"payload": "payload"            
 			}
-			]  
 		}
-		}
-	}
 	}
 	
 	else{
