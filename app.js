@@ -154,46 +154,6 @@ function handleMessage(sender_psid, received_message) {
 	else if (television && television.confidence > 0.8){
 		response = {
 			"attachment": {
-				"type": "template",
-				"payload": {
-				"template_type": "list",
-				"top_element_style": "compact",
-				"elements": [
-					{
-					"title": "Television",
-					"subtitle": "TV",
-					"buttons": [
-					  {
-						"title": "AGfun x Skype",
-						"type": "web_url",
-						"url":"https://www.youtube.com/watch?v=9JUSfv2jGv8&feature=youtu.be&list=PLQsbsFdQU3uuDcboQFEyN6IOaWBAJJQvF",
-						"messenger_extensions": true,
-						"webview_height_ratio": "tall",
-					  }
-					 ] 
-					},
-					{
-						"title": "Linking Play",
-						"type": "web_url",
-						"default_action":{
-							"type": "web_url",
-							"url":"https://www.youtube.com/watch?v=FEB0GnN8gZ8&feature=youtu.be&list=PLQsbsFdQU3uuDcboQFEyN6IOaWBAJJQvF",
-							"messenger_extensions": false,
-							"webview_height_ratio": "tall",
-						}
-					},
-				]
-				}
-			}
-		}
-	}
-	
-	else{
-	// Checks if the message contains text
-	if (received_message.text) {    
-
-		response = {
-			"attachment": {
 			"type": "template",
 			"payload": {
 			"template_type": "list",
@@ -257,6 +217,45 @@ function handleMessage(sender_psid, received_message) {
 		}
 		}
 	}
+	}
+	
+	else{
+	// Checks if the message contains text
+	if (received_message.text) {    
+
+		response = {
+		"attachment": {
+			"type": "template",
+			"payload": {
+			"template_type": "generic",
+			"elements": [{
+				"title": "Which one do you want to know?",
+				"subtitle": "Choose the product",
+			//	"image_url": attachment_url,
+				"buttons": [
+				{
+					"type": "web_url",
+					"url":"http://www.agtopnet.com/agmini.html",
+					"title": "AGmini",
+					"webview_height_ratio": "full",
+				},
+				{
+					"type": "web_url",
+					"url":"http://www.agtopnet.com/agfunbox.html",
+					"title": "AGfun box",
+					"webview_height_ratio": "full",
+				},
+				{
+					"type":"web_url",
+					"url":"http://www.agtopnet.com/agremote.html",
+					"title":"AGremo",
+					"webview_height_ratio":"full",
+				}
+				],
+			}]
+			}
+		}
+		}
 	} 	 
 	else if (received_message.attachments) {
 		// Get the URL of the message attachment
