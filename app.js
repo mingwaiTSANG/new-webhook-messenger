@@ -164,7 +164,7 @@ function handleMessage(sender_psid, received_message) {
 						"type": "web_url",
 						"url":"https://www.youtube.com/watch?v=FEB0GnN8gZ8&feature=youtu.be&list=PLQsbsFdQU3uuDcboQFEyN6IOaWBAJJQvF",
 						"title": "Linking Play",
-						"webview_height_ratio": "tall",
+						"webview_height_ratio": "full",
 					},
 					{
 						"type": "web_url",
