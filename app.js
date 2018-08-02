@@ -151,7 +151,7 @@ function handleMessage(sender_psid, received_message) {
 			}
 		}
 	}
-	else if (television && television.confidence > 0.8){
+	else if (television && television.confidence > 0.5){
 		response = {
 			"attachment": {
 			"type": "template",
@@ -220,11 +220,10 @@ function handleMessage(sender_psid, received_message) {
 	}
 	
 	else{
-	// Checks if the message contains text
-	if (received_message.text) {    
-
-		response = {
-		"attachment": {
+	
+		if (received_message.text) {    
+			response = {
+			"attachment": {
 			"type": "template",
 			"payload": {
 			"template_type": "generic",
