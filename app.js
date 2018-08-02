@@ -106,8 +106,9 @@ function handleMessage(sender_psid, received_message) {
 	const greeting = firstEntity(received_message.nlp, 'greetings');
 	const thanks = firstEntity(received_message.nlp, 'thanks');
 	const bye = firstEntity(received_message.nlp, 'bye');
-	const remote = firstEntity(received_message.nlp, 'intent.remote');
-	const television = firstEntity(received_message.nlp, 'intent/television');
+	const remote = firstEntity(received_message.nlp, 'remoteControl');
+	const television = firstEntity(received_message.nlp, 'television');
+	
 	if (greeting && greeting.confidence > 0.8) {
 		response ={"text":"Hi there!"}
 	} 
@@ -155,24 +156,33 @@ function handleMessage(sender_psid, received_message) {
 			"attachment": {
 				"type": "template",
 				"payload": {
-				"template_type": "generic",
-				"elements": [{
-					"title": "Television",
-					"buttons": [
+				"template_type": "list",
+				"top_element_style": "compact",
+				"elements": [
 					{
+					"title": "Television",
+					"subtitle": "TV",
+					"buttons": [
+					  {
+						"title": "AGfun x Skype",
 						"type": "web_url",
 						"url":"https://www.youtube.com/watch?v=9JUSfv2jGv8&feature=youtu.be&list=PLQsbsFdQU3uuDcboQFEyN6IOaWBAJJQvF",
-						"title": "AGfun x Skype",
-						"webview_height_ratio": "full",
+						"messenger_extensions": true,
+						"webview_height_ratio": "tall",
+					  }
+					 ] 
 					},
 					{
-						"type": "web_url",
-						"url":"https://www.youtube.com/watch?v=FEB0GnN8gZ8&feature=youtu.be&list=PLQsbsFdQU3uuDcboQFEyN6IOaWBAJJQvF",
 						"title": "Linking Play",
-						"webview_height_ratio": "full",
-					}
-					],
-				}]
+						"type": "web_url",
+						"default_action":{
+							"type": "web_url",
+							"url":"https://www.youtube.com/watch?v=FEB0GnN8gZ8&feature=youtu.be&list=PLQsbsFdQU3uuDcboQFEyN6IOaWBAJJQvF",
+							"messenger_extensions": false,
+							"webview_height_ratio": "tall",
+						}
+					},
+				]
 				}
 			}
 		}
