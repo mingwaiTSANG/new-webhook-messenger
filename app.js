@@ -217,7 +217,6 @@ function handleMessage(sender_psid, received_message) {
 		}
 	} 	 
 	else if (received_message.attachments) {
-		// Get the URL of the message attachment
 		let attachment_url = received_message.attachments[0].payload.url;
 		response = {
 		"attachment": {
@@ -227,7 +226,6 @@ function handleMessage(sender_psid, received_message) {
 			"elements": [{
 				"title": "Your problem is...?",
 				"subtitle": "Choose the closely question.",
-			//	"image_url": attachment_url,
 				"buttons": [
 				{
 					"type": "postback",
@@ -269,7 +267,7 @@ function handlePostback(sender_psid, received_postback) {
 		response = { "text": "Oops, try sending clearly." }
 	}
 	else if (payload === 'start'){
-		response = { "text": "Hi, What can I do for you?"}
+		response = { "text": "嗨~ 請輸入你想要查詢内容的關鍵字?"}
 	}
 	
   
