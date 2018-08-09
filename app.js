@@ -267,7 +267,7 @@ function handlePostback(sender_psid, received_postback) {
 		response = { "text": "Oops, try sending clearly." }
 	}
 	else if (payload === 'start'){
-		response = { "text": "嗨~ 請輸入你想要查詢内容的關鍵字?"}
+		response = { "text": "嗨~ 請輸入你想要查詢内容的關鍵字。"}
 	}
 	
   
